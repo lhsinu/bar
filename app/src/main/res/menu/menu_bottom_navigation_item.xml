@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_driving_history"
+        android:title="@string/strMainDrivingHistory"
+        android:icon="@drawable/arrow_back"/>
+    <item android:id="@+id/menu_health_history"
+        android:title="@string/strMainHealthHistory"
+        android:icon="@drawable/arrow_back"/>
+    <item android:id="@+id/menu_accident_history"
+        android:title="@string/strMainAccidentPicture"
+        android:icon="@drawable/arrow_back"/>
+    <item android:id="@+id/menu_call_setting"
+        android:title="@string/strMainSetupCall"
+        android:icon="@drawable/arrow_back"/>
+</menu>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--    <item-->
+<!--        android:id="@+id/favorite"-->
+<!--        android:icon="@drawable/ic_launcher_background"-->
+<!--        android:title="favorite"-->
+<!--        android:contentDescription="content_description_favorite"-->
+<!--        app:showAsAction="ifRoom" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/search"-->
+<!--        android:icon="@drawable/ic_launcher_background"-->
+<!--        android:title="search"-->
+<!--        android:contentDescription="content_description_search"-->
+<!--        app:showAsAction="ifRoom" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/more"-->
+<!--        android:title="more"-->
+<!--        android:contentDescription="content_description_more"-->
+<!--        app:showAsAction="never" />-->
+
+    <item android:id="@+id/menu_call_setting"
+        android:title="@string/strMenuSetting"
+        app:showAsAction="never">
+    </item>
+
+    <item
+        android:id="@+id/menu_room_database"
+        android:title="@string/strMenuDatabase"
+        app:showAsAction="never">
+    </item>
+</menu>
