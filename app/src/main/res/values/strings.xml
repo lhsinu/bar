@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">bar</string>
+
+    // Main
+    <string name="strMainDrivingHistory">주행이력</string>
+    <string name="strMainHealthHistory">건강이력</string>
+    <string name="strMainAccidentPicture">주행(사고) 상황 사진</string>
+    <string name="strMainSetupCall">전화설정</string>
+
+    <string name="strMainTitle">주행사고</string>
+    <string name="strMainRecentAccident">최근 사고 이력</string>
+    <string name="strMainPastAccident">지난 사고 이력</string>
+    <string name="strMainRecentDefault">2022.06.27</string>
+
+    // DrivingHistory
+    <string name="strCalendarDefault">2022.01.31(월)</string>
+    <string name="strAverageHint">Average</string>
+
+    // HealthHistory
+    <string name="strHealthDay">일간 건강이력</string>
+    <string name="strHealthWeek">주간 건강이력</string>
+    <string name="strHealthMonth">월간 건강이력</string>
+
+    // AccidentHistory
+    <string name="strAccidentHistory">사고 이력</string>
+    <string name="strAccidentInfo">저정된 정보</string>
+    <string name="strAccidentPhoto">저장된 사진</string>
+
+    // AccidentDetail
+    <!--    <string name="strAccidentAddress">인천 연수구 아카데미로 119 (송도동)</string>-->
+    <string name="strAccidentAddress">GPS Data Is Not Exist</string>
+    <string name="strAccidentFront">정면</string>
+    <string name="strAccidentBack">후면</string>
+
+    <string name="strRecentFront">정면</string>
+    <string name="strRecentBack">후면</string>
+
+    // Call Setting
+    <string name="strSettingTitle">전화 설정</string>
+    <string name="strEmergencyCall">EMERGENCY CALL</string>
+    <string name="strSetting119">Call 119</string>
+    <string name="strContact119">Number Select</string>
+    <string name="strNumber119">119</string>
+    <string name="strSetting112">Call 112</string>
+    <string name="strContact112">Number Select</string>
+    <string name="strNumber112">112</string>
+
+    // Menu
+    <string name="strMenuSetting">Settings</string>
+    <string name="strMenuDatabase">Room DB</string>
+
+    // Room DB
+    <string name="strDBGet">GET</string>
+    <string name="strFrontCam">FrontCam</string>
+    <string name="strBackCam">BackCam</string>
+    <string name="strDriving">Driving</string>
+    <string name="strMessage">Message</string>
+
+    // Bluetooth
+    <string name="str_toast_turn_off_do_not_disturb">Please turn off Do Not Disturb mode.</string>
+    <string name="str_bluetooth_title">Bluetooth 기기 검색</string>
+    <string name="str_bluetooth_not_supported">Bluetooth not supported.</string>
+    <string name="str_bluetooth_unknown_characteristic">Unknown characteristic</string>
+    <string name="str_bluetooth_unknown_service">Unknown service</string>
+
+    // Loading
+    <string name="str_loding_driving">LOading</string>
+    <string name="str_loding_front">LOADing</string>
+    <string name="str_loding_back">LOADING</string>
+
+    // Device Setting
+    <string name="strSettingDeviceTitle">센서 설정</string>
+    <string name="strReset">RESET</string>
+</resources>
