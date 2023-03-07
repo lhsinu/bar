@@ -82,7 +82,7 @@ class BarDataStore {
             }
         }
 
-        bStateDriving = true
+//        bStateDriving = true
         if(bStateDriving && bStateFrontCam && bStateBackCam) {
 //        if(bStateDriving && bStateFrontCam) {
             bDrivingValue = false
@@ -113,7 +113,7 @@ class BarDataStore {
         val curTime = commonUtils.currentTimeToLong()
         val curDate = commonUtils.convertLongToTime(curTime)
 
-        Log.e("eleutheria", "curTime : $curTime, curDate : $curDate, bDrivingValue : $bDrivingValue")
+//        Log.e("eleutheria", "curTime : $curTime, curDate : $curDate, bDrivingValue : $bDrivingValue")
 
 //        Toast.makeText(MyApplication.ApplicationContext(), "InsertData", Toast.LENGTH_SHORT).show()
 

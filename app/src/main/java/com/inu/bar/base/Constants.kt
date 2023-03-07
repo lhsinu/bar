@@ -1,7 +1,6 @@
 package com.inu.bar.base
 
 import com.inu.bar.db.BarEntity
-import com.inu.bar.mmslib.pdu.PduHeaders
 
 
 
@@ -29,6 +28,9 @@ class Constants {
         val PREF_DRIVING_DEVICE : String                            = "prefDrivingDevice"
         val PREF_FRONT_DEVICE : String                              = "prefFrontDevice"
         val PREF_BACK_DEVICE : String                               = "prefBackDevice"
+        val PREF_WIFI_DEVICE : String                               = "prefWifiDevice"
+        val PREF_WIFIPORT_DEVICE : String                           = "prefWifiPortDevice"
+
 
         var curState : Int                                          = 0
         val STATE_CONNECT_DRIVING : Int                              = 1
@@ -37,14 +39,33 @@ class Constants {
 
         val INTENT_PHOTO_PATH : String                              = "photoPath"
 
+
         const val DATA_STORE_INDEX_DRIVING                           = 0
         const val DATA_STORE_INDEX_FRONT_CAM                         = 1
         const val DATA_STORE_INDEX_BACK_CAM                          = 2
 
+        const val PREFIX_START                                      = "FFD8FF"
+        const val PREFIX_MIDDLE                                     = "212121"
+        const val PREFIX_END                                        = "FFD9"
+
+//        var baStartBytes : ByteArray                                    = PREFIX_START.toByteArray()
+        var baStartBytes : ByteArray                                    = byteArrayOf(-1, -40, -1)
+//            var baMiddleBytes : ByteArray                               = PREFIX_MIDDLE.toByteArray()
+        var baMiddleBytes : ByteArray                               = byteArrayOf(33, 33, 33)
+//            var baEndBytes : ByteArray                                  = PREFIX_END.toByteArray()
+        var baEndBytes : ByteArray                                  = byteArrayOf(-1, -39)
+
+//        var baEndEndBytes : ByteArray                               = byteArrayOf(-34, 0xFF, 0xFF)
+        //0xFF, 0xD9, 0xFF
+
         var bStartReading : Int                                     = 0
+        var nCurrentState : Int                                     = 0
         const val READING_STATE_NONE                                = 0
-        const val READING_STATE_STOP                                = 1
-        const val READING_STATE_START                               = 2
+        const val READING_STATE_FRONT                               = 1
+        const val READING_STATE_BACK                                = 2
+        const val READING_STATE_READY                               = 3
+        const val READING_STATE_STOP                                = 11
+        const val READING_STATE_START                               = 12
 
         var recentData: BarEntity                                   = BarEntity(
                                                                     1,
@@ -74,7 +95,6 @@ class Constants {
 
         const val ACTION_MMS_SENT = "MMS_SENT_ACTION"
         const val DEFAULT_EXPIRY_TIME = (7 * 24 * 60 * 60).toLong()
-        const val DEFAULT_PRIORITY = PduHeaders.PRIORITY_NORMAL
 
         var default_driving_address                                 = "50:02:91:95:8A:D2"
 //        var default_driving_address                                 = "50:02:91:95:69:FA"
@@ -88,6 +108,12 @@ class Constants {
 //        var default_back_address                                    = "30:C6:F7:04:4F:5A"
         var default_back_address                                    = "30:C6:F7:04:2E:F2"
 
+        var default_wifi_ip                                             = "192.168.4.1"
+        var default_wifi_port                                           = "80"
+
+
+        var MODULE_ADDRESS_WIFI_CAM                                     = default_wifi_ip       // "192.168.4.1"
+        var MODULE_ADDRESS_WIFI_PORT                                    = default_wifi_port     // "80"
 
         // Classic Address
         var MODULE_ADDRESS_CLASSIC_FRONTCAM                             = default_front_address//"30:C6:F7:04:43:E6"

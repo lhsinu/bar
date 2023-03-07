@@ -8,22 +8,17 @@ import android.location.Address
 import android.location.Geocoder
 import android.net.Uri
 import android.telephony.SmsManager
-import android.telephony.TelephonyManager
-import android.text.TextUtils
 import android.util.Log
-import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.content.FileProvider
 import com.inu.bar.LocationProvider
 import com.inu.bar.R
-import com.inu.bar.mmslib.ContentType
-import com.inu.bar.mmslib.InvalidHeaderValueException
-import com.inu.bar.mmslib.pdu.*
 import com.klinker.android.send_message.Message
 import com.klinker.android.send_message.Settings
 import com.klinker.android.send_message.Transaction
+import java.io.BufferedWriter
 import java.io.File
-import java.nio.charset.Charset
+import java.io.FileWriter
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -59,7 +54,7 @@ class CommonUtils {
         var strSecond = "18"
 
 
-        var arSplit = startTime.split("/")
+        val arSplit = startTime.split("/")
 
         if(arSplit.size > 5) {
             strYear = arSplit[0]
@@ -361,132 +356,68 @@ class CommonUtils {
         startActivity(MyApplication.ApplicationContext(), intent, null)
     }
 
-    fun sendMMS(phoneNumber : String) {
-        Log.e("eleutheria", "sendMMS(Method) : " + "start");
 
-        var subject : String = "Subject"
-        var text : String = "body Text"
 
-        var imagePath : String = MyApplication.ApplicationContext().filesDir.path + "/20220805_053236.jpg"
+    fun writeTextToFile(strMessage : String) {
+//        val mdformat = SimpleDateFormat("YYYY/MM/dd/hh/mm/ss")
+//        val startTime = mdformat.format(Date())
+//        val filePath = context.filesDir.path + "/bar_receive_" + startTime +".txt"
+        val filePath = MyApplication.ApplicationContext().filesDir.path + "/bar_receive.txt"
+        val file = File(filePath)
+        val fileWriter = FileWriter(file, true)
+        val bufferedWriter = BufferedWriter(fileWriter)
 
-        Log.e("eleutheria", "phoneNumber : $phoneNumber")
-        Log.e("eleutheria", "Subject : $subject")
-        Log.e("eleutheria", "text : $text")
-        Log.e("eleutheria", "imagePath : $imagePath")
-
-        val mmsSettings : Settings = Settings()
-        mmsSettings.useSystemSending = true
-
-        val transaction : Transaction = Transaction(MyApplication.ApplicationContext(), mmsSettings)
-
-        val mmsMessage : Message = Message(text, phoneNumber, subject)
-
-        if(!imagePath.equals("") && imagePath != null) {
-            val mBitmap : Bitmap = BitmapFactory.decodeFile(imagePath)
-            mmsMessage.addImage(mBitmap)
-        }
-
-        val id : Long = android.os.Process.getThreadPriority(android.os.Process.myTid()).toLong()
-
-        transaction.sendNewMessage(mmsMessage, id)
+        bufferedWriter.append(strMessage)
+        bufferedWriter.newLine()
+        bufferedWriter.close()
     }
 
-    private fun buildPdu(
-        context: Context, recipients: String, subject: String,
-        text: String
-    ): ByteArray? {
-        val req = SendReq()
-        // From, per spec
-        val lineNumber: String? = getSimNumber(context)
-        if (!TextUtils.isEmpty(lineNumber)) {
-            req.setFrom(EncodedStringValue(lineNumber))
+    fun bytesToHexString(bytes: ByteArray): String {
+        val sb = StringBuilder(bytes.size * 2)
+        val formatter = Formatter(sb)
+        for (b in bytes) {
+            formatter.format("%02x", b)
         }
-        // To
-        val encodedNumbers: Array<EncodedStringValue> =
-            EncodedStringValue.encodeStrings(recipients.split(" ").toTypedArray())
-        if (encodedNumbers != null) {
-            req.setTo(encodedNumbers)
-        }
-        // Subject
-        if (!TextUtils.isEmpty(subject)) {
-            req.setSubject(EncodedStringValue(subject))
-        }
-        // Date
-        req.setDate(System.currentTimeMillis() / 1000)
-        // Body
-        val body = PduBody()
-        // Add text part. Always add a smil part for compatibility, without it there
-        // may be issues on some carriers/client apps
-        val size: Int = addTextPart(body, text, true /* add text smil */)
-        req.setBody(body)
-        // Message size
-        req.setMessageSize(size.toLong())
-        // Message class
-        req.setMessageClass(PduHeaders.MESSAGE_CLASS_PERSONAL_STR.toByteArray(Charset.defaultCharset()))
-        // Expiry
-        req.setExpiry(Constants.DEFAULT_EXPIRY_TIME)
-        try {
-            // Priority
-            req.setPriority(Constants.DEFAULT_PRIORITY)
-            // Delivery report
-            req.setDeliveryReport(PduHeaders.VALUE_NO)
-            // Read report
-            req.setReadReport(PduHeaders.VALUE_NO)
-        } catch (e: InvalidHeaderValueException) {
-        }
-        return PduComposer(context, req).make()
+        return sb.toString()
     }
 
-    private fun getSimNumber(context: Context): String? {
-        val telephonyManager = context.getSystemService(
-            Context.TELEPHONY_SERVICE
-        ) as TelephonyManager
-        return telephonyManager.line1Number
-    }
-
-    private fun addTextPart(pb: PduBody, message: String, addTextSmil: Boolean): Int {
-        var TEXT_PART_FILENAME = "text_0.txt";
-        var sSmilText =
-            "<smil>" +
-                    "<head>" +
-                    "<layout>" +
-                    "<root-layout/>" +
-                    "<region height=\"100%%\" id=\"Text\" left=\"0%%\" top=\"0%%\" width=\"100%%\"/>" +
-                    "</layout>" +
-                    "</head>" +
-                    "<body>" +
-                    "<par dur=\"8000ms\">" +
-                    "<text src=\"%s\" region=\"Text\"/>" +
-                    "</par>" +
-                    "</body>" +
-                    "</smil>"
-
-        val part = PduPart()
-        // Set Charset if it's a text media.
-        part.charset = CharacterSets.UTF_8
-        // Set Content-Type.
-        part.contentType = ContentType.TEXT_PLAIN.toByteArray(Charset.defaultCharset())
-        // Set Content-Location.
-        part.contentLocation = TEXT_PART_FILENAME.toByteArray(Charset.defaultCharset())
-        val index: Int = TEXT_PART_FILENAME.lastIndexOf(".")
-        val contentId: String =
-            if (index == -1) TEXT_PART_FILENAME else TEXT_PART_FILENAME.substring(0, index)
-        part.contentId = contentId.toByteArray()
-        part.data = message.toByteArray()
-        pb.addPart(part)
-        if (addTextSmil) {
-            val smil: String = java.lang.String.format(sSmilText, TEXT_PART_FILENAME)
-            addSmilPart(pb, smil)
+    fun compareStartBytes(array1: ByteArray): Boolean {
+        if (array1.size < 3) {
+            return false // both arrays should have at least 3 bytes
         }
-        return part.data.size
+        for (i in 0 until 3) {
+            Log.e("eleutheria", "i : $i, array : ${array1[i]}, Constants.baStartBytes[i] : ${Constants.baStartBytes[i]}")
+            if (array1[i] != Constants.baStartBytes[i]) {
+                return false // the first three bytes are not equal
+            }
+        }
+        Log.e("eleutheria", "start is true")
+        return true // the first three bytes are equal
     }
 
-    private fun addSmilPart(pb: PduBody, smil: String) {
-        val smilPart = PduPart()
-        smilPart.contentId = "smil".toByteArray()
-        smilPart.contentLocation = "smil.xml".toByteArray()
-        smilPart.contentType = ContentType.APP_SMIL.toByteArray()
-        smilPart.data = smil.toByteArray()
-        pb.addPart(0, smilPart)
+    fun compareMiddleBytes(array1: ByteArray): Boolean {
+        if (array1.size < 3) {
+            return false // both arrays should have at least 3 bytes
+        }
+        for (i in 0 until 3) {
+            Log.e("eleutheria", "i : $i, array : ${array1[i]}, Constants.baMiddleBytes[i] : ${Constants.baMiddleBytes[i]}")
+            if (array1[i] != Constants.baMiddleBytes[i]) {
+                return false // the first three bytes are not equal
+            }
+        }
+        Log.e("eleutheria", "middle is true")
+        return true // the first three bytes are equal
+    }
+
+    fun compareEndBytes(array1: ByteArray): Boolean {
+        if (array1.size < 2) {
+            return false // both arrays should have at least 3 bytes
+        }
+        for (i in 0 until 2) {
+            if (array1[i] != Constants.baEndBytes[i]) {
+                return false // the first three bytes are not equal
+            }
+        }
+        return true // the first three bytes are equal
     }
 }

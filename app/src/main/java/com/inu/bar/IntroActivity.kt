@@ -94,6 +94,10 @@ class IntroActivity : AppCompatActivity() {
             deviceSettings!!.getString(Constants.PREF_FRONT_DEVICE, Constants.default_front_address).toString()
         Constants.MODULE_ADDRESS_CLASSIC_BACKCAM =
             deviceSettings!!.getString(Constants.PREF_BACK_DEVICE, Constants.default_back_address).toString()
+        Constants.MODULE_ADDRESS_WIFI_CAM =
+            deviceSettings!!.getString(Constants.PREF_WIFI_DEVICE, Constants.default_wifi_ip).toString()
+        Constants.MODULE_ADDRESS_WIFI_PORT =
+            deviceSettings!!.getString(Constants.PREF_WIFIPORT_DEVICE, Constants.default_wifi_port).toString()
 //        Log.e("eleutheria", "Intro Next str119Number : ${Constants.str119Number}, str112Number : ${Constants.str112Number}, MODULE_ADDRESS_DRIVING : ${Constants.MODULE_ADDRESS_DRIVING}, MODULE_ADDRESS_FRONT_CAM : ${Constants.MODULE_ADDRESS_FRONT_CAM}, MODULE_ADDRESS_BACK_CAM : ${Constants.MODULE_ADDRESS_BACK_CAM}")
 
 
