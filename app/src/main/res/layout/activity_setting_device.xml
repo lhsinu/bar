@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="@string/strDriving"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="@android:string/ok"
         app:layout_constraintStart_toEndOf="@+id/tv_Driving"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,11 +30,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_Driving" />
 
@@ -43,11 +43,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toEndOf="@+id/et_Driving_1"
         app:layout_constraintTop_toBottomOf="@+id/tv_Driving" />
 
@@ -56,11 +56,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toEndOf="@+id/et_Driving_2"
         app:layout_constraintTop_toBottomOf="@+id/tv_Driving" />
 
@@ -69,11 +69,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toEndOf="@+id/et_Driving_3"
         app:layout_constraintTop_toBottomOf="@+id/tv_Driving" />
 
@@ -82,11 +82,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toEndOf="@+id/et_Driving_4"
         app:layout_constraintTop_toBottomOf="@+id/tv_Driving" />
 
@@ -95,11 +95,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toEndOf="@+id/et_Driving_5"
         app:layout_constraintTop_toBottomOf="@+id/tv_Driving" />
 
@@ -120,7 +120,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="@string/strFrontCam"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_line1" />
@@ -130,7 +130,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="@android:string/ok"
         app:layout_constraintStart_toEndOf="@+id/tv_Front"
         app:layout_constraintTop_toBottomOf="@id/iv_line1" />
@@ -140,11 +140,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_Front" />
 
@@ -153,11 +153,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toEndOf="@+id/et_Front_1"
         app:layout_constraintTop_toBottomOf="@+id/tv_Front" />
 
@@ -166,11 +166,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toEndOf="@+id/et_Front_2"
         app:layout_constraintTop_toBottomOf="@+id/tv_Front" />
 
@@ -179,11 +179,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toEndOf="@+id/et_Front_3"
         app:layout_constraintTop_toBottomOf="@+id/tv_Front" />
 
@@ -192,11 +192,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toEndOf="@+id/et_Front_4"
         app:layout_constraintTop_toBottomOf="@+id/tv_Front" />
 
@@ -205,11 +205,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toEndOf="@+id/et_Front_5"
         app:layout_constraintTop_toBottomOf="@+id/tv_Front" />
 
@@ -228,14 +228,13 @@
         app:layout_constraintTop_toBottomOf="@id/et_Front_1" />
 
 
-
     <TextView
         android:id="@+id/tv_Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
-        android:text="@string/strFrontCam"
+        android:layout_marginTop="30dp"
+        android:text="@string/strBackCam"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_line2" />
 
@@ -244,7 +243,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="@android:string/ok"
         app:layout_constraintStart_toEndOf="@+id/tv_Front"
         app:layout_constraintTop_toBottomOf="@id/iv_line2" />
@@ -254,11 +253,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_Back" />
 
@@ -267,11 +266,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toEndOf="@+id/et_Back_1"
         app:layout_constraintTop_toBottomOf="@+id/tv_Back" />
 
@@ -280,11 +279,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toEndOf="@+id/et_Back_2"
         app:layout_constraintTop_toBottomOf="@+id/tv_Back" />
 
@@ -293,11 +292,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toEndOf="@+id/et_Back_3"
         app:layout_constraintTop_toBottomOf="@+id/tv_Back" />
 
@@ -306,11 +305,11 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toEndOf="@+id/et_Back_4"
         app:layout_constraintTop_toBottomOf="@+id/tv_Back" />
 
@@ -319,14 +318,111 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="00"
         android:maxLength="2"
+        android:text="00"
         app:layout_constraintStart_toEndOf="@+id/et_Back_5"
         app:layout_constraintTop_toBottomOf="@+id/tv_Back" />
 
+
+    <ImageView
+        android:id="@+id/iv_line3"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_Back_1" />
+
+    <TextView
+        android:id="@+id/tv_Wifi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/strWiFi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_line3" />
+
+    <Button
+        android:id="@+id/bt_Wifi_OK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:text="@android:string/ok"
+        app:layout_constraintStart_toEndOf="@+id/tv_Wifi"
+        app:layout_constraintTop_toBottomOf="@id/iv_line3" />
+
+    <EditText
+        android:id="@+id/et_Wifi_1"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:maxLength="3"
+        android:text="192"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Wifi" />
+
+    <EditText
+        android:id="@+id/et_Wifi_2"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:maxLength="3"
+        android:text="168"
+        app:layout_constraintStart_toEndOf="@+id/et_Wifi_1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Wifi" />
+
+    <EditText
+        android:id="@+id/et_Wifi_3"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:maxLength="3"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/et_Wifi_2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Wifi" />
+
+    <EditText
+        android:id="@+id/et_Wifi_4"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:maxLength="3"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/et_Wifi_3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Wifi" />
+
+    <EditText
+        android:id="@+id/et_Wifi_5"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:maxLength="4"
+        android:text="80"
+        app:layout_constraintStart_toEndOf="@+id/et_Wifi_4"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Wifi" />
 
     <Button
         android:id="@+id/bt_Reset"
@@ -336,5 +432,5 @@
         android:layout_marginTop="50dp"
         android:text="@string/strReset"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_Back_1" />
+        app:layout_constraintTop_toBottomOf="@id/et_Wifi_1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

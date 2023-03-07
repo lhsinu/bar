@@ -54,6 +54,7 @@
     <string name="strFrontCam">FrontCam</string>
     <string name="strBackCam">BackCam</string>
     <string name="strDriving">Driving</string>
+    <string name="strWiFi">WiFiCam</string>
     <string name="strMessage">Message</string>
 
     // Bluetooth
@@ -67,6 +68,7 @@
     <string name="str_loding_driving">LOading</string>
     <string name="str_loding_front">LOADing</string>
     <string name="str_loding_back">LOADING</string>
+    <string name="str_loding_loading">LOADING</string>
 
     // Device Setting
     <string name="strSettingDeviceTitle">센서 설정</string>

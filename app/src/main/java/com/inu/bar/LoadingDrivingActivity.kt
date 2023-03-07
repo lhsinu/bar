@@ -69,8 +69,8 @@ class LoadingDrivingActivity : AppCompatActivity() {
                 Log.e("eleutheria", "ACTION_GATT_SERVICES_DISCOVERED")
 
 //                val intent = Intent(this@LoadingDrivingActivity, LoadingFrontActivity::class.java)
-                val intent = Intent(this@LoadingDrivingActivity, LoadingFrontClassicActivity::class.java)
-//                val intent = Intent(this@LoadingDrivingActivity, MainActivity::class.java)
+//                val intent = Intent(this@LoadingDrivingActivity, LoadingFrontClassicActivity::class.java)
+                val intent = Intent(this@LoadingDrivingActivity, MainActivity::class.java)
                 startActivity(intent)
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE == action) {
                 parsingData(intent.getStringExtra(BluetoothLeService.EXTRA_DATA))

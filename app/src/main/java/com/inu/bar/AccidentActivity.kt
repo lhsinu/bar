@@ -34,7 +34,7 @@ class AccidentActivity : AppCompatActivity() {
         binding.tvAccidentDetail.text = commonUtils.convertLongToTime(recentData.accidentdate)
         val spString : List<String> = recentData.gps.split(", ")
 
-        if(spString.size > 1) {
+        if(spString.size > 10) { // temporary 10
             val lat: Double = spString[0].toDouble()
             val lon: Double = spString[1].toDouble()
 

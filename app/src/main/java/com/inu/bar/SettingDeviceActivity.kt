@@ -31,6 +31,8 @@ class SettingDeviceActivity : AppCompatActivity()  {
 //        val strBackData : String? = settings!!.getString(Constants.PREF_BACK_DEVICE, Constants.MODULE_ADDRESS_BACK_CAM)
         val strFrontData : String? = settings!!.getString(Constants.PREF_FRONT_DEVICE, Constants.MODULE_ADDRESS_CLASSIC_FRONTCAM)
         val strBackData : String? = settings!!.getString(Constants.PREF_BACK_DEVICE, Constants.MODULE_ADDRESS_CLASSIC_BACKCAM)
+        val strWifiData : String? = settings!!.getString(Constants.PREF_WIFI_DEVICE, Constants.MODULE_ADDRESS_WIFI_CAM)
+        val strWifiPortData : String? = settings!!.getString(Constants.PREF_WIFIPORT_DEVICE, Constants.MODULE_ADDRESS_WIFI_PORT)
 
         if (strDrivingData != null) {
             val arDrivingData = strDrivingData.split(":")
@@ -72,6 +74,23 @@ class SettingDeviceActivity : AppCompatActivity()  {
             }
         }
 
+        if (strWifiData != null)
+        {
+            val arWifiData = strWifiData.split(".")
+
+            if(arWifiData.size > 3) {
+                binding.etWifi1.setText(arWifiData[0])
+                binding.etWifi2.setText(arWifiData[1])
+                binding.etWifi3.setText(arWifiData[2])
+                binding.etWifi4.setText(arWifiData[3])
+            }
+        }
+
+        if (strWifiPortData != null)
+        {
+                binding.etWifi5.setText(strWifiPortData)
+        }
+
         binding.btDrivingOK.setOnClickListener {
             val strDrivingAddress = binding.etDriving1.text.toString() + ":" + binding.etDriving2.text.toString() + ":" + binding.etDriving3.text.toString() + ":" + binding.etDriving4.text.toString() + ":" + binding.etDriving5.text.toString() + ":" + binding.etDriving6.text.toString()
 
@@ -107,6 +126,24 @@ class SettingDeviceActivity : AppCompatActivity()  {
             Toast.makeText(this, "BackAddress : $strBackAddress", Toast.LENGTH_SHORT).show()
         }
 
+        binding.btWifiOK.setOnClickListener {
+            val strWifiAddress = binding.etWifi1.text.toString() + "." + binding.etWifi2.text.toString() + "." + binding.etWifi3.text.toString() + "." + binding.etWifi4.text.toString()
+
+            Log.e("eleutheria", "strWifiAddress : $strWifiAddress")
+            val editor = settings!!.edit()
+            editor.putString(Constants.PREF_WIFI_DEVICE, strWifiAddress)
+            editor.apply()
+
+            val strPortAddress = binding.etWifi5.text.toString()
+
+            Log.e("eleutheria", "strPortAddress : $strPortAddress")
+            val ipEditor = settings!!.edit()
+            ipEditor.putString(Constants.PREF_WIFIPORT_DEVICE , strPortAddress)
+            ipEditor.apply()
+
+            Toast.makeText(this, "PortAddress : $strPortAddress", Toast.LENGTH_SHORT).show()
+        }
+
         binding.btReset.setOnClickListener {
             val strDrivingAddress = Constants.default_driving_address
 
@@ -128,6 +165,20 @@ class SettingDeviceActivity : AppCompatActivity()  {
             val editorBack = settings!!.edit()
             editorBack.putString(Constants.PREF_BACK_DEVICE, strBackAddress)
             editorBack.apply()
+
+            val strWifiAddress = Constants.default_wifi_ip
+
+            Log.e("eleutheria", "strWifiAddress : $strWifiAddress")
+            val editorWifi = settings!!.edit()
+            editorWifi.putString(Constants.PREF_WIFI_DEVICE, strWifiAddress)
+            editorWifi.apply()
+
+            val strWifiPortAddress = Constants.default_wifi_port
+
+            Log.e("eleutheria", "strWifiPortAddress : $strWifiPortAddress")
+            val editorPort = settings!!.edit()
+            editorPort.putString(Constants.PREF_WIFIPORT_DEVICE, strWifiPortAddress)
+            editorPort.apply()
 
             if (strDrivingAddress != null) {
                 val arDrivingData = strDrivingAddress.split(":")
@@ -167,6 +218,23 @@ class SettingDeviceActivity : AppCompatActivity()  {
                     binding.etBack5.setText(arBackData[4])
                     binding.etBack6.setText(arBackData[5])
                 }
+            }
+
+            if (strWifiAddress != null)
+            {
+                val arWifiData = strWifiAddress.split(".")
+
+                if(arWifiData.size > 3) {
+                    binding.etWifi1.setText(arWifiData[0])
+                    binding.etWifi2.setText(arWifiData[1])
+                    binding.etWifi3.setText(arWifiData[2])
+                    binding.etWifi4.setText(arWifiData[3])
+                }
+            }
+
+            if (strWifiPortAddress != null)
+            {
+                    binding.etWifi5.setText(strWifiPortAddress)
             }
         }
 
