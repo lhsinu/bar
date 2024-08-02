@@ -36,22 +36,36 @@ class IntroActivity : AppCompatActivity() {
 
 //var latitude : Double = 0.0
 //var longitude : Double = 0.0
-
-    var REQUIRED_PERMISSIONS = arrayOf(
-        Manifest.permission.BLUETOOTH,
-        Manifest.permission.BLUETOOTH_ADMIN,
-        Manifest.permission.BLUETOOTH_SCAN,
-        Manifest.permission.BLUETOOTH_CONNECT,
-        Manifest.permission.ACCESS_FINE_LOCATION,
-        Manifest.permission.ACCESS_COARSE_LOCATION,
-        Manifest.permission.CALL_PHONE,
-        Manifest.permission.SEND_SMS,
-        Manifest.permission.READ_SMS,
-        Manifest.permission.READ_CONTACTS,
-        Manifest.permission.READ_PHONE_STATE,
-        Manifest.permission.INTERNET,
-        Manifest.permission.READ_EXTERNAL_STORAGE
-    )
+    var REQUIRED_PERMISSIONS = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        arrayOf(
+            Manifest.permission.BLUETOOTH,
+            Manifest.permission.BLUETOOTH_ADMIN,
+            Manifest.permission.BLUETOOTH_SCAN,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.BLUETOOTH_CONNECT,
+            Manifest.permission.CALL_PHONE,
+            Manifest.permission.SEND_SMS,
+            Manifest.permission.READ_SMS,
+            Manifest.permission.READ_CONTACTS,
+            Manifest.permission.READ_PHONE_STATE,
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        )
+    } else {
+        TODO("VERSION.SDK_INT < S")
+        arrayOf(
+            Manifest.permission.BLUETOOTH,
+            Manifest.permission.BLUETOOTH_ADMIN,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.CALL_PHONE,
+            Manifest.permission.SEND_SMS,
+            Manifest.permission.READ_SMS,
+            Manifest.permission.READ_CONTACTS,
+            Manifest.permission.READ_PHONE_STATE,
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        )
+    }
 
 
     lateinit var getGPSPermissionLauncher : ActivityResultLauncher<Intent>
@@ -73,7 +87,7 @@ class IntroActivity : AppCompatActivity() {
         binding = ActivityIntroBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar!!.hide()
+        supportActionBar?.hide()
 //        Log.e("eleutheria", "Intro str119Number : ${Constants.str119Number}, str112Number : ${Constants.str112Number}, MODULE_ADDRESS_DRIVING : ${Constants.MODULE_ADDRESS_DRIVING}, MODULE_ADDRESS_FRONT_CAM : ${Constants.MODULE_ADDRESS_FRONT_CAM}, MODULE_ADDRESS_BACK_CAM : ${Constants.MODULE_ADDRESS_BACK_CAM}")
 
         settings = getSharedPreferences(Constants.SHARED_PREF_SEUPDATA, Context.MODE_PRIVATE)
